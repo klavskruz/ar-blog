@@ -46,11 +46,16 @@ export default function ImageUploader(){
                 <>
                 <label className='btn'>
                     📷 Upload Img
-                    <input type='file' onChange={uploadFile} accept='image/x-png,image/gif,image/jpeg,usdz'/>
+                    <input type='file' onChange={uploadFile} accept='image/x-png,image/gif,image/jpeg,model/usdz'/>
                 </label>
                 </>
             )}
-            {downloadURL && <code className='upload-snippet'>{`![alt](${downloadURL})`}</code>}
+            {downloadURL && <>
+            <code className='upload-snippet'>{`![alt](${downloadURL})`}</code>
+            <a href={downloadURL} rel='ar' target='_blank'>AR THING HERE</a>
+            </>
+            }
+            
         </div>
     )
 }
