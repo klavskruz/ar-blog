@@ -15,6 +15,7 @@ export function PostContent({post}) {
                 </Link>{' '}
                 on {createdAt.toISOString()}
             </span>
+            <a href={post.modelUrl} rel='ar'>AR SHOULD SHOW UP HERE</a>
             <ReactMarkdown>{post?.content}</ReactMarkdown>
         </div>
     );

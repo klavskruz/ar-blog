@@ -58,11 +58,12 @@ function PostForm({defaultValues, postRef, preview}) {
 
     const {isValid, isDirty} = useFormState({control});
 
-    const updatePost = async ({content, published}) => {
+    const updatePost = async ({content, published,modelUrl}) => {
         await postRef.update({
             content,
             published,
             updatedAt: serverTimestamp(),
+            modelUrl
         })
         reset({content, published});
 
@@ -91,12 +92,13 @@ function PostForm({defaultValues, postRef, preview}) {
                                          }
                     })}>
                 </textarea>
+                <input type='text' {...register('modelUrl')} placeholder='Enter Model URL'/>
                  <ErrorMessage
                      errors={errors}
                      name="content"
                      render={({ message }) => <p className="text-danger">{message}</p>}
                 />
-
+                
                 <fieldset>
                     <input className={styles.checkbox} type='checkbox' {...register('published')} />
                     <label>Published</label>
