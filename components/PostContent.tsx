@@ -1,5 +1,28 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
+import '@google/model-viewer/lib/model-viewer.js'
+
+
+declare global {
+    namespace JSX {
+      interface IntrinsicElements {
+        'model-viewer': ModelViewerJSX & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> ;
+      }
+    }
+  }
+  
+  interface ModelViewerJSX {
+    'src'?: string,
+     ar,
+    'ar-modes'?: string,
+    'ar-scale'?: string,
+    'ar-placement'?: string,
+    'ios-src'?: string,
+    'xr-environment'?: string,
+    'alt'?:string
+
+  }
+
 
 export function PostContent({post}) {
     const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
@@ -15,7 +38,11 @@ export function PostContent({post}) {
                 </Link>{' '}
                 on {createdAt.toISOString()}
             </span>
-            <a href={post.modelUrl} rel='ar' target='_blank'>AR SHOULD SHOW UP HERE</a>
+            <aside>
+            <model-viewer alt="A 3D model of an astronaut" ar ios-src={post.modelUrl}>
+                MODEL IS HERE
+            </model-viewer>
+            </aside>
             <ReactMarkdown>{post?.content}</ReactMarkdown>
         </div>
     );
