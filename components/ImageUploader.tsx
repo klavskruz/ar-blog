@@ -52,7 +52,7 @@ export default function ImageUploader(){
             )}
             {downloadURL && <>
             <code className='upload-snippet'>{`![alt](${downloadURL})`}</code>
-            <a href={downloadURL} rel='ar' target='_blank'>AR THING HERE</a>
+            <a href={downloadURL} rel='ar'>AR THING HERE</a>
             </>
             }
             
