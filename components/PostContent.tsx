@@ -1,28 +1,7 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import '@google/model-viewer'
-
-
-declare global {
-    namespace JSX {
-      interface IntrinsicElements {
-        'model-viewer': ModelViewerJSX & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> ;
-      }
-    }
-  }
-  
-  interface ModelViewerJSX {
-    'src'?: string,
-     ar,
-    'ar-modes'?: string,
-    'ar-scale'?: string,
-    'ar-placement'?: string,
-    'ios-src'?: string,
-    'xr-environment'?: string,
-    'alt'?:string
-
-  }
-
+require("@leoncvlt/ar-button")
+import "@leoncvlt/ar-button/styles.css"
 
 export function PostContent({post}) {
     const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
@@ -39,9 +18,12 @@ export function PostContent({post}) {
                 on {createdAt.toISOString()}
             </span>
             <aside>
-            <model-viewer alt="A 3D model of an astronaut" ar ios-src={post.modelUrl}>
-                MODEL IS HERE
-            </model-viewer>
+            <ar-button
+                ios-src={post.modelUrl}
+                link="https://www.nasa.gov/"
+                title="A 3D model of an astronaut">
+                See in Augmented Reality 
+            </ar-button>
             </aside>
             <ReactMarkdown>{post?.content}</ReactMarkdown>
         </div>
