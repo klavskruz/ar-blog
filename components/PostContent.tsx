@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import '@google/model-viewer/lib/model-viewer.js'
+import '@google/model-viewer'
 
 
 declare global {
