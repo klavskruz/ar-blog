@@ -7,20 +7,28 @@ import { useUserData } from '../lib/hooks'
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'ar-button': ModelViewerJSX & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> ;
+      'model-viewer': ModelViewerJSX & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> ;
     }
   }
 }
 
 interface ModelViewerJSX {
   src?:string,
+  alt?:string,
+  ar?:boolean,
+  "ar-modes"?:string,
+  "environment-image"?:string,
+  "poster"?:string,
+  "seamless-poster"?:boolean,
+  "shadow-intensity"?:string,
+  "camera-controls"?:boolean,
   'ios-src'?:string,
+  "ar-status"?: string,
   link?:string,
   title?:string,
 
 
 }
-
 function MyApp({ Component, pageProps }) {
   
   const userData = useUserData();

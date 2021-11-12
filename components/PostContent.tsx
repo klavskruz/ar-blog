@@ -1,7 +1,6 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-require("@leoncvlt/ar-button")
-import "@leoncvlt/ar-button/styles.css"
+require("@google/model-viewer/dist/model-viewer")
 
 export function PostContent({post}) {
     const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
@@ -18,12 +17,7 @@ export function PostContent({post}) {
                 on {createdAt.toISOString()}
             </span>
             <aside>
-            <ar-button
-                ios-src={post.modelUrl}
-                link="https://www.nasa.gov/"
-                title="A 3D model of an astronaut">
-                See in Augmented Reality 
-            </ar-button>
+            <model-viewer alt="FILL THIS IN FROM FORM DATA" src={post.modelUrl} ios-src={post.iosModelUrl} ar ar-modes="webxr scene-viewer quick-look"  seamless-poster shadow-intensity="1" camera-controls></model-viewer>
             </aside>
             <ReactMarkdown>{post?.content}</ReactMarkdown>
         </div>

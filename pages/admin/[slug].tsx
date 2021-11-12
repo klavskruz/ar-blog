@@ -58,12 +58,13 @@ function PostForm({defaultValues, postRef, preview}) {
 
     const {isValid, isDirty} = useFormState({control});
 
-    const updatePost = async ({content, published,modelUrl}) => {
+    const updatePost = async ({content, published,modelUrl,iosModelUrl}) => {
         await postRef.update({
             content,
             published,
             updatedAt: serverTimestamp(),
-            modelUrl
+            modelUrl,
+            iosModelUrl
         })
         reset({content, published});
 
@@ -93,6 +94,7 @@ function PostForm({defaultValues, postRef, preview}) {
                     })}>
                 </textarea>
                 <input type='text' {...register('modelUrl')} placeholder='Enter Model URL'/>
+                <input type='text' {...register('iosModelUrl')} placeholder='Enter Model URL for IOS - USDZ ONLY'/>
                  <ErrorMessage
                      errors={errors}
                      name="content"
