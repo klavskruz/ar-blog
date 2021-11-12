@@ -17,7 +17,9 @@ export function PostContent({post}) {
                 on {createdAt.toISOString()}
             </span>
             <aside>
-            <model-viewer alt="FILL THIS IN FROM FORM DATA" src={post.modelUrl} ios-src={post.iosModelUrl} ar ar-modes="webxr scene-viewer quick-look"  seamless-poster shadow-intensity="1" camera-controls></model-viewer>
+            <model-viewer alt="FILL THIS IN FROM FORM DATA" src={post.modelUrl}  seamless-poster shadow-intensity="1" camera-controls></model-viewer>
+            <model-viewer camera-controls alt="A 3D model of an astronaut" ar ios-src={post.iosModelUrl}>
+            </model-viewer>
             </aside>
             <ReactMarkdown>{post?.content}</ReactMarkdown>
         </div>
