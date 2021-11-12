@@ -17,7 +17,7 @@ export function PostContent({post}) {
                 on {createdAt.toISOString()}
             </span>
             <aside>
-            <model-viewer alt="FILL THIS IN FROM FORM DATA" src={post.modelUrl}  seamless-poster shadow-intensity="1" camera-controls ar ios-src={`https://firebasestorage.googleapis.com/v0/b/all-solar-admin.appspot.com/o/uploads%2F47164X2tPbWVjQr0gfI61FNchTF3%2Ftoy_drummer.usdz?alt=media&token=09bb79d9-b17e-4509-8211-24b977959d8e`} xr-environment ></model-viewer>
+            <model-viewer alt="FILL THIS IN FROM FORM DATA" src={post.modelUrl}  seamless-poster shadow-intensity="1" camera-controls ar ios-src={`https://firebasestorage.googleapis.com/v0/b/all-solar-admin.appspot.com/o/uploads%2F47164X2tPbWVjQr0gfI61FNchTF3%2F1636716956735.%5Bobject%20File%5D?alt=media&token=0a80a06b-e0e7-462a-b4c9-574c0cbe0c19`} xr-environment ></model-viewer>
             </aside>
             <ReactMarkdown>{post?.content}</ReactMarkdown>
         </div>
