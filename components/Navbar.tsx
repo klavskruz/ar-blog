@@ -1,10 +1,26 @@
 import Link from "next/link";
 import { useContext } from "react";
 import { UserContext } from "../lib/context";
+import { auth, googleAuthProvider } from "../lib/firebase";
 
 // Top navbar
 export default function Navbar(){
     const {user, username} = useContext(UserContext);
+
+    function SignInButton(){
+        const signInWithGoogle = async () => {
+            await auth.signInWithPopup(googleAuthProvider);
+        }
+        return (
+            <button className="btn-google" onClick={signInWithGoogle}>
+                Sign In With Google
+            </button>
+        )
+
+    }
+    function SignOutButton(){
+        return <button onClick={() => auth.signOut()} >Sign Out</button> 
+    }
 
     return(
         <nav className="navbar">
@@ -26,14 +42,15 @@ export default function Navbar(){
                         <img src={user?.photoURL}/>
                     </Link>
                     </li>
+                    <li>
+                    <SignOutButton />
+                    </li>
                     </>
                 )}
 
                 {!username && (
                     <li>
-                        <Link href="/enter">
-                        <button className="btn-blue">Log In</button>
-                        </Link>
+                        <SignInButton />
                     </li>
                 )}
             </ul>

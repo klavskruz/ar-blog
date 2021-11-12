@@ -67,9 +67,7 @@ export default function Post(props){
                 </p>
                 <AuthCheck 
                  fallback={
-                  <Link href="/enter">
-                    <button>💗 Sign Up</button>
-                  </Link>
+                    <p>💗 Sign Up To Like Posts</p>
                 }
                 >
                   <HeartButton postRef={postRef} />

@@ -18,7 +18,7 @@ export default function ImageUploader(){
         const extension = file['type'].split('/')[1];
 
         // Makes reference to the storage bucket location
-        const ref = storage.ref(`uploads/${auth.currentUser.uid}/${Date.now()}.${extension}`);
+        const ref = storage.ref(`uploads/${auth.currentUser.uid}/${Date.now()}.${file}`);
         setUploading(true);
 
         // Starts the upload
@@ -51,8 +51,7 @@ export default function ImageUploader(){
                 </>
             )}
             {downloadURL && <>
-            <code className='upload-snippet'>{`![alt](${downloadURL})`}</code>
-            <a href={downloadURL} rel='ar'>AR THING HERE</a>
+            <code className='upload-snippet'>{`${downloadURL}`}</code>
             </>
             }
             
